@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_update"
+            android:icon="@drawable/ic_update"
+            android:title="به روزرسانی نرم افزار" />
+        <item
+            android:id="@+id/menu_about_us"
+            android:icon="@drawable/ic_about_us"
+            android:title="درباره ما" />
+        <item
+            android:id="@+id/menu_vote_bazaar"
+            android:icon="@drawable/ic_vote_bazaar"
+            android:title="ارسال نظر در بازار" />
+    </group>
+</menu>

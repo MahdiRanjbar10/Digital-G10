@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CardLinearContent">
+        <attr name="text" format="string" />
+        <attr name="src" format="reference" />
+        <!-- Standard orientation constant. -->
+        <attr name="orientation">
+            <!-- Defines an horizontal widget. -->
+            <enum name="horizontal" value="0" />
+            <!-- Defines a vertical widget. -->
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+</resources>

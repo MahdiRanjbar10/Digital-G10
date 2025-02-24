@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back">
+
+    <LinearLayout
+        android:id="@+id/pass_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@color/black"
+        android:alpha="0.8"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_enter_pass"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <CheckBox
+                android:id="@+id/c1"
+                style="@style/PasswordIndicator" />
+
+            <CheckBox
+                android:id="@+id/c2"
+                style="@style/PasswordIndicator" />
+
+            <CheckBox
+                android:id="@+id/c3"
+                style="@style/PasswordIndicator" />
+
+            <CheckBox
+                android:id="@+id/c4"
+                style="@style/PasswordIndicator" />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="@string/content_des"
+                android:src="@drawable/ic_remove"
+                app:tint="@color/white"/>
+
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="3">
+
+            <TextView android:id="@+id/b1" style="@style/KeypadButton" android:text="@string/_1"/>
+            <TextView android:id="@+id/b2" style="@style/KeypadButton" android:text="@string/_2"/>
+            <TextView android:id="@+id/b3" style="@style/KeypadButton" android:text="@string/_3"/>
+
+            <TextView android:id="@+id/b4" style="@style/KeypadButton" android:text="@string/_4"/>
+            <TextView android:id="@+id/b5" style="@style/KeypadButton" android:text="@string/_5"/>
+            <TextView android:id="@+id/b6" style="@style/KeypadButton" android:text="@string/_6"/>
+
+            <TextView android:id="@+id/b7" style="@style/KeypadButton" android:text="@string/_7"/>
+            <TextView android:id="@+id/b8" style="@style/KeypadButton" android:text="@string/_8"/>
+            <TextView android:id="@+id/b9" style="@style/KeypadButton" android:text="@string/_9"/>
+
+            <View
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+            <TextView
+                android:id="@+id/b0"
+                style="@style/KeypadButton"
+                android:text="@string/_0"/>
+            <View
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+        </GridLayout>
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

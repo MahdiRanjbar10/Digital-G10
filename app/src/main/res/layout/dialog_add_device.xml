@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    app:cardCornerRadius="40dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ایجاد دستگاه"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="@android:color/holo_red_dark" />
+
+        </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:endIconMode="custom">
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusedByDefault="true"
+                    android:hint="نام محل نصب"
+                    android:inputType="text"
+                    android:maxLength="11" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:endIconMode="custom">
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusedByDefault="true"
+                android:hint="شماره سیم کارت"
+                android:inputType="phone"
+                android:maxLength="11" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="نوع دستگاه"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/GD10_option"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GD10"
+                android:gravity="center" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/M52_option"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M52"
+                android:gravity="center" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textStyle="bold"-->
+<!--            android:text="زبان ارتباطی"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textColor="@color/black"/>-->
+
+<!--        <com.google.android.material.button.MaterialButtonToggleGroup-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            app:singleSelection="true">-->
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/en_option"-->
+<!--                style="@style/Widget.Material3.Button.OutlinedButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="انگلیسی"-->
+<!--                android:gravity="center" />-->
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/fa_option"-->
+<!--                style="@style/Widget.Material3.Button.OutlinedButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="فارسی"-->
+<!--                android:gravity="center" />-->
+
+<!--        </com.google.android.material.button.MaterialButtonToggleGroup>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="آیکون دستگاه"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/customMaterialButton"
+                android:id="@+id/secOption1"
+                app:icon="@drawable/sec_ic1" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/customMaterialButton"
+                android:id="@+id/secOption2"
+                app:icon="@drawable/sec_ic2" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/customMaterialButton"
+                android:id="@+id/secOption3"
+                app:icon="@drawable/sec_ic3" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/customMaterialButton"
+                android:id="@+id/secOption4"
+                app:icon="@drawable/sec_ic4" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/customMaterialButton"
+                android:id="@+id/secOption5"
+                app:icon="@drawable/sec_ic5"
+                app:iconGravity="start"/>
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/bReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="بازنشانی"
+                android:layout_marginRight="5dp"/>
+
+            <Button
+                android:id="@+id/bSaveDevice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ذخیره"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

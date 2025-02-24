@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="#F8F8F8"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="آیا مایل به فعال کردن دزدگیر می باشید؟"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="40dp"
+            android:text="خیر"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <View
+            android:layout_width="0.7dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <CheckBox
+            style="@style/Widget.AppCompat.TextView"
+            android:id="@+id/bYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="40dp"
+            android:text="بله"
+            android:button="@null"
+            android:checked="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:buttonTint="@android:color/transparent"
+            android:background="@android:color/transparent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

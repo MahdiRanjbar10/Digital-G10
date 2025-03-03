@@ -47,7 +47,6 @@ public class ManageAlarmDevicesActivity extends AppCompatActivity {
         binding.fabAddDevice.setOnClickListener(view -> {
             Dialog d = new Dialog(ManageAlarmDevicesActivity.this, R.style.AppDialogTheme);
             d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            d.setCancelable(false);
             d.setContentView(R.layout.dialog_add_device);
             ImageView ivClose = d.findViewById(R.id.ivClose);
             EditText etName = d.findViewById(R.id.et_name);
@@ -161,7 +160,6 @@ public class ManageAlarmDevicesActivity extends AppCompatActivity {
             holder.edit.setOnClickListener(view -> {
                 Dialog d = new Dialog(ManageAlarmDevicesActivity.this, R.style.AppDialogTheme);
                 d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                d.setCancelable(false);
                 d.setContentView(R.layout.dialog_add_device);
                 ImageView ivClose = d.findViewById(R.id.ivClose);
                 EditText etName = d.findViewById(R.id.et_name);

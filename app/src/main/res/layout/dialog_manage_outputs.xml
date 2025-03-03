@@ -26,8 +26,7 @@
                 android:id="@+id/ivClose"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
-                app:tint="@android:color/holo_red_dark" />
+                android:src="@drawable/ic_close"/>
 
         </LinearLayout>
 
@@ -51,7 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="خروجی 2"
-                android:gravity="center" />
+                android:gravity="center"
+                app:backgroundTint="@color/material_button_background_tint"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/bOut1"
@@ -59,7 +59,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="خروجی 1"
-                android:gravity="center" />
+                android:gravity="center"
+                app:backgroundTint="@color/material_button_background_tint"/>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -76,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="ارسال فرمان"/>
+            android:text="ارسال دستور"/>
 
     </LinearLayout>
 

@@ -30,11 +30,10 @@
                 android:gravity="center"/>
 
             <ImageView
-                android:id="@+id/iv_close"
+                android:id="@+id/ivClose"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
-                app:tint="@android:color/holo_red_dark" />
+                android:src="@drawable/ic_close"/>
 
         </LinearLayout>
 
@@ -51,7 +50,8 @@
                 android:layout_height="wrap_content"
                 app:iconTint="@color/black"
                 android:text="SIM1"
-                android:gravity="center" />
+                android:gravity="center"
+                app:backgroundTint="@color/material_button_background_tint"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sim2_option"
@@ -59,12 +59,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SIM2"
-                android:gravity="center" />
+                android:gravity="center"
+                app:backgroundTint="@color/material_button_background_tint"/>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
         <Button
-            android:id="@+id/b_save"
+            android:id="@+id/bSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ذخیره"

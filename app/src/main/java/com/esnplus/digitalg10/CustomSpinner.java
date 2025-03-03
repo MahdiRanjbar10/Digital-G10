@@ -25,6 +25,7 @@ public class CustomSpinner extends LinearLayout {
     private int selectedIndex;
     private SpinnerAdapter adapter;
     private LinearLayout headLayout;
+    private OnItemClickListener onItemClickListener;
 
     public CustomSpinner(Context context) {
         super(context);
@@ -61,6 +62,9 @@ public class CustomSpinner extends LinearLayout {
         arrowView.startAnimation(anim);
         arrowView.setBackgroundResource(R.drawable.ic_arrow_down);
     }
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
     public void setUpAdapter(List<AlarmDevice> list) {
         adapter = new SpinnerAdapter(list);
         spinnerRecyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -91,8 +95,8 @@ public class CustomSpinner extends LinearLayout {
         return new AlarmDevice();
     }
     public void setSelectedItem(int position){
-        AlarmDevice alarmDevice = adapter.list.get(position);
         selectedIndex = position;
+        AlarmDevice alarmDevice = adapter.list.get(position);
         spinnerSelectedTv.setText(alarmDevice.getName());
         spinnerSelectedIv.setImageResource(alarmDevice.getIcon());
     }
@@ -115,6 +119,7 @@ public class CustomSpinner extends LinearLayout {
             holder.itemIcon.setImageResource(alarmDevice.getIcon());
             holder.itemView.setOnClickListener(view -> {
                 setSelectedItem(holder.getAdapterPosition());
+                onItemClickListener.onClick(selectedIndex);
                 closeSpinner();
             });
         }
@@ -132,5 +137,8 @@ public class CustomSpinner extends LinearLayout {
                 itemIcon = itemView.findViewById(R.id.itemIcon);
             }
         }
+    }
+    public interface OnItemClickListener{
+        void onClick(int position);
     }
 }

@@ -7,7 +7,7 @@ public class AlarmDevice {
     public static final int M52 = 1;
     public static final int GD10 = 2;
     public AlarmDevice(){
-        this(GD10,"","",-1);
+        this(M52,"","",-1);
     }
     public AlarmDevice(int type, String name, String phoneNumber,int icon) {
         this.type = type;

@@ -37,8 +37,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         }, 2300);
 
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_fade);
-        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_move_from_bottom);
         findViewById(R.id.textShow).startAnimation(animation);
-        findViewById(R.id.gif).startAnimation(animation2);
+        findViewById(R.id.gif).startAnimation(animation);
     }
 }

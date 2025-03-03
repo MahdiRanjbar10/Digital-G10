@@ -27,6 +27,10 @@ public class Settings extends AppCompatActivity {
     Button bEditSavePass,bCancel;
     SharedPreferences.Editor editor;
     Dialog passDialog;
+    private final int orderManagePhoneList = 1;
+    private final int orderNameRemotes = 2;
+    private final int orderRemoveRemotes = 3;
+    private final int orderNameZones = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,70 +46,60 @@ public class Settings extends AppCompatActivity {
         selectedPhoneNumber = extras.getString("phone");
         binding.tvShowSelectedDevice.setText("دستگاه انتخابی : " + selectedName);
 
+        int selectedType = extras.getInt("type");
+        if (selectedType == AlarmDevice.GD10) {
+            binding.cvChangeSmsZone.setVisibility(View.GONE);
+            binding.cvRemoveRemote.setVisibility(View.GONE);
+            binding.cvNameRemote.setVisibility(View.GONE);
+            binding.cvNameZone.setVisibility(View.GONE);
+        }else {
+            binding.cvSmsZoneNegative.setVisibility(View.GONE);
+            binding.cvSmsZonePositive.setVisibility(View.GONE);
+        }
+
         binding.cvChangeSmsZone.setOnClickListener(view -> {
+            createChangeSmsZoneDialog("تغییر متن پیامک تحریک","تحریک:");
+        });
+        binding.cvSmsZonePositive.setOnClickListener(view -> {
+            createChangeSmsZoneDialog("تغییر متن تحریک +","تحریک+:");
+        });
+        binding.cvSmsZoneNegative.setOnClickListener(view -> {
+            createChangeSmsZoneDialog("تغییر متن تحریک -","تحریک-:");
+        });
+
+        binding.cvManagePhonelist.setOnClickListener(view -> makeCustomDialog(orderManagePhoneList,20,"مدیریت شماره تلفن\u200Cها","حافظه","شماره تلفن را وارد نمایید","شماره تلفن"));
+        binding.cvNameZone.setOnClickListener(view -> makeCustomDialog(orderNameZones,8,"نام گذاری زون\u200Cها","زون","نام زون را وارد نمایید","نام زون"));
+        binding.cvNameRemote.setOnClickListener(view -> makeCustomDialog(orderNameRemotes,8,"نام گذاری ریموت\u200Cها","ریموت","نام ریموت را وارد نمایید","نام ریموت"));
+        binding.cvRemoveRemote.setOnClickListener(view -> makeCustomDialog(orderRemoveRemotes,8,"حذف ریموت","ریموت","",""));
+
+        binding.cvChangeDefaultSim.setOnClickListener(view -> {
             Dialog d = new Dialog(Settings.this, R.style.AppDialogTheme);
             d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            d.setCanceledOnTouchOutside(false);
-            d.setContentView(R.layout.edittext_dialog);
-            ImageView ivClose = d.findViewById(R.id.iv_close);
-            TextView title = d.findViewById(R.id.tv_title);
-            Button bSendOrder = d.findViewById(R.id.b_send_order);
-            TextInputLayout inputLayoutSmsText = d.findViewById(R.id.input_layout_sms_text);
-            TextInputLayout inputLayoutBalance = d.findViewById(R.id.input_layout_balance);
-            EditText etSmsText = d.findViewById(R.id.et_sms_text);
-            EditText etBalance = d.findViewById(R.id.et_balance);
-
-            inputLayoutBalance.setVisibility(View.GONE);
+            d.setContentView(R.layout.dialog_change_default_sim);
+            ImageView ivClose = d.findViewById(R.id.ivClose);
+            Button bSave = d.findViewById(R.id.bSave);
+            MaterialButton sim1Option = d.findViewById(R.id.sim1_option);
+            MaterialButton sim2Option = d.findViewById(R.id.sim2_option);
             ivClose.setOnClickListener(view2 -> d.dismiss());
-            title.setText("تغییر متن پیامک تحریک");
-            bSendOrder.setOnClickListener(view4 -> {
-                String smsText = etSmsText.getText().toString();
-                if (smsText.isEmpty()){
-                    Utils.showMessage("لطفا متن پیامک تحریک را وارد نمایید!",Settings.this);
-                }else {
-                    makeSmsDialog("TRIG:" + smsText);
+
+            SharedPreferences prefs = getSharedPreferences("storage", MODE_PRIVATE);
+            editor = prefs.edit();
+            int defaultSim = prefs.getInt("defaultSim",1);
+
+            if (defaultSim == 1){
+                sim1Option.setChecked(true);
+            }else {
+                sim2Option.setChecked(true);
+            }
+            bSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    editor.putInt("defaultSim",sim1Option.isChecked() ? 1 : 2);
+                    editor.commit();
                     d.dismiss();
                 }
             });
             d.show();
-        });
-
-        binding.cvManagePhonelist.setOnClickListener(view -> makeCustomDialog("مدیریت شماره تلفن ها","حافظه","شماره تلفن را وارد نمایید","TEL","شماره تلفن",false));
-        binding.cvNameZone.setOnClickListener(view -> makeCustomDialog("نام گذاری زون ها","زون","نام زون را وارد نمایید","زون","نام زون",false));
-        binding.cvNameRemote.setOnClickListener(view -> makeCustomDialog("نام گذاری ریموت ها","ریموت","نام ریموت را وارد نمایید","ریموت","نام ریموت",false));
-        binding.cvRemoveRemote.setOnClickListener(view -> makeCustomDialog("حذف ریموت","ریموت","","REMOVE","",true));
-        binding.cvChangeDefaultSim.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Dialog d = new Dialog(Settings.this, R.style.AppDialogTheme);
-                d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                d.setCanceledOnTouchOutside(false);
-                d.setContentView(R.layout.dialog_change_default_sim);
-                ImageView ivClose = d.findViewById(R.id.iv_close);
-                Button bSave = d.findViewById(R.id.b_save);
-                MaterialButton sim1Option = d.findViewById(R.id.sim1_option);
-                MaterialButton sim2Option = d.findViewById(R.id.sim2_option);
-                ivClose.setOnClickListener(view2 -> d.dismiss());
-
-                SharedPreferences prefs = getSharedPreferences("storage", MODE_PRIVATE);
-                editor = prefs.edit();
-                int defaultSim = prefs.getInt("defaultSim",1);
-
-                if (defaultSim == 1){
-                    sim1Option.setChecked(true);
-                }else {
-                    sim2Option.setChecked(true);
-                }
-                bSave.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        editor.putInt("defaultSim",sim1Option.isChecked() ? 1 : 2);
-                        editor.commit();
-                        d.dismiss();
-                    }
-                });
-                d.show();
-            }
         });
 
         binding.cvManagePassword.setOnClickListener(new View.OnClickListener() {
@@ -113,25 +107,32 @@ public class Settings extends AppCompatActivity {
             public void onClick(View view) {
                 passDialog = new Dialog(Settings.this, R.style.AppDialogTheme);
                 passDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                passDialog.setCanceledOnTouchOutside(false);
                 passDialog.setContentView(R.layout.dialog_password);
 
                 etPass = passDialog.findViewById(R.id.et_password);
                 textInputLayout = passDialog.findViewById(R.id.input_layout);
                 bEditSavePass = passDialog.findViewById(R.id.button2);
                 bCancel = passDialog.findViewById(R.id.button3);
-                MaterialSwitch materialSwitch = passDialog.findViewById(R.id.switch1);
-                ImageView ivClose = passDialog.findViewById(R.id.iv_close);
+                MaterialSwitch switch1 = passDialog.findViewById(R.id.switch1);
+                MaterialSwitch switch2 = passDialog.findViewById(R.id.switch2);
+                ImageView ivClose = passDialog.findViewById(R.id.ivClose);
 
                 SharedPreferences prefs = getSharedPreferences("storage", MODE_PRIVATE);
                 editor = prefs.edit();
                 pass = prefs.getString("pass","1234");
                 boolean isPassEnabled = prefs.getBoolean("pass_enabled",true);
+                boolean isPassIncluded = prefs.getBoolean("pass_included",false);
+
+                switch2.setChecked(isPassIncluded);
+                switch2.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+                    editor.putBoolean("pass_included", isChecked);
+                    editor.apply();
+                });
 
                 ivClose.setOnClickListener(view1 -> passDialog.dismiss());
-                materialSwitch.setOnCheckedChangeListener((compoundButton,isChecked) -> {
+                switch1.setOnCheckedChangeListener((compoundButton,isChecked) -> {
                     if (compoundButton.isPressed()) {
-                        materialSwitch.setChecked(!isChecked);
+                        switch1.setChecked(!isChecked);
                         Utils.createAlertDialog(Settings.this, "آیا از تغییر وضعیت رمز عبور نرم افزار مطمئن می باشید؟", "بله", "خیر", view119 -> {
                             if (isChecked) {
                                 textInputLayout.setEnabled(true);
@@ -143,7 +144,7 @@ public class Settings extends AppCompatActivity {
                                 bCancel.setEnabled(false);
                                 bCancel.performClick();
                             }
-                            materialSwitch.setChecked(isChecked);
+                            switch1.setChecked(isChecked);
                             editor.putBoolean("pass_enabled", isChecked);
                             editor.apply();
                         });
@@ -153,11 +154,11 @@ public class Settings extends AppCompatActivity {
                 if (isPassEnabled){
                     textInputLayout.setEnabled(true);
                     bEditSavePass.setEnabled(true);
-                    materialSwitch.setChecked(true);
+                    switch1.setChecked(true);
                 }else{
                     textInputLayout.setEnabled(false);
                     bEditSavePass.setEnabled(false);
-                    materialSwitch.setChecked(false);
+                    switch1.setChecked(false);
                 }
 
                 if (pass.isEmpty()){
@@ -180,40 +181,97 @@ public class Settings extends AppCompatActivity {
             }
         });
     }
-    private void makeCustomDialog(String txtTitle,String txt1,String txt2,String command,String error,boolean onlySliderShow) {
+
+    private void createChangeSmsZoneDialog(String title,String command) {
         Dialog d = new Dialog(Settings.this, R.style.AppDialogTheme);
         d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        d.setCanceledOnTouchOutside(false);
+        d.setContentView(R.layout.dialog_edit_text);
+        ImageView ivClose = d.findViewById(R.id.ivClose);
+        TextView tvTitle = d.findViewById(R.id.tv_title);
+        Button bSendOrder = d.findViewById(R.id.bSendOrder);
+        TextInputLayout inputLayoutBalance = d.findViewById(R.id.input_layout_balance);
+        EditText etSmsText = d.findViewById(R.id.et_sms_text);
+
+        inputLayoutBalance.setVisibility(View.GONE);
+        ivClose.setOnClickListener(view2 -> d.dismiss());
+        tvTitle.setText(title);
+        bSendOrder.setOnClickListener(view4 -> {
+            String smsText = etSmsText.getText().toString();
+            if (smsText.isEmpty()){
+                Utils.showMessage("لطفا متن پیامک تحریک را وارد نمایید!",Settings.this);
+            }else {
+                makeSmsDialog(command + smsText);
+                d.dismiss();
+            }
+        });
+        d.show();
+    }
+
+    private void makeCustomDialog(int order,int valueTo,String title,String sliderCurrentTxt,String hint,String errorWord) {
+        Dialog d = new Dialog(Settings.this, R.style.AppDialogTheme);
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
         d.setContentView(R.layout.dialog_custom_settings);
         ImageView ivClose = d.findViewById(R.id.ivClose);
-        TextView current = d.findViewById(R.id.current);
-        TextView guideText = d.findViewById(R.id.guide_text);
-        TextView title = d.findViewById(R.id.tv_title);
+        TextView tvSliderCurrent = d.findViewById(R.id.current);
+        TextView tvGuideText = d.findViewById(R.id.guide_text);
+        TextView tvTitle = d.findViewById(R.id.tv_title);
         Slider slider = d.findViewById(R.id.slider);
         Button bSendOrder = d.findViewById(R.id.bSendOrder);
         Button bDelete = d.findViewById(R.id.bDelete);
-        EditText et = d.findViewById(R.id.et);
+        EditText editText = d.findViewById(R.id.et);
         TextInputLayout inputLayout = d.findViewById(R.id.inputLayout);
+
         bSendOrder.setOnClickListener(view -> {
-            String etText = et.getText().toString();
+            String etText = editText.getText().toString();
             if (etText.isEmpty()){
-                Utils.showMessage("لطفا " + error + " را وارد نمایید!",Settings.this);
+                Utils.showMessage("لطفا " + errorWord + " را وارد نمایید!",Settings.this);
             }else {
-                makeSmsDialog(command + ((int) slider.getValue()) + ":" + etText);
+                String sms = "";
+                switch (order){
+                    case orderManagePhoneList:
+                        sms = "TEL" + ((int) slider.getValue()) + ":" + etText;
+                        break;
+                    case orderNameRemotes:
+                        sms = "ریموت" + Utils.replaceWithPersian$(((int) slider.getValue())) + ":" + etText;
+                        break;
+                    case orderRemoveRemotes:
+                        sms = "";
+                        break;
+                    case orderNameZones:
+                        sms = "زون" + "۰" + Utils.replaceWithPersian$(((int) slider.getValue())) + ":" + etText;
+                        break;
+                }
+                makeSmsDialog(sms);
                 d.dismiss();
             }
         });
         bDelete.setOnClickListener(view -> {
-            makeSmsDialog(command + ((int) slider.getValue()) + ":");
+            String sms = "";
+            switch (order){
+                case orderManagePhoneList:
+                    sms = "TEL" + ((int) slider.getValue()) + ":";
+                    break;
+                case orderNameRemotes:
+                    sms = "ریموت" + Utils.replaceWithPersian$(((int) slider.getValue())) + ":";
+                    break;
+                case orderRemoveRemotes:
+                    sms = "REMOVE:" + ((int) slider.getValue());
+                    break;
+                case orderNameZones:
+                    sms = "زون" + "۰" + Utils.replaceWithPersian$(((int) slider.getValue())) + ":";
+                    break;
+            }
+            makeSmsDialog(sms);
             d.dismiss();
         });
         ivClose.setOnClickListener(view -> d.dismiss());
-        slider.addOnChangeListener((slider1, value, fromUser) -> current.setText(txt1 + " انتخابی : " + ((int) value)));
-        et.setHint(txt2);
-        current.setText(txt1 + " انتخابی : " + ((int) slider.getValue()));
-        title.setText(txtTitle);
-        guideText.setText("جهت تغییر " + txt1 + " انتخابی،نوار بالا را به راست یا چپ بکشید");
-        if (onlySliderShow){
+        slider.addOnChangeListener((slider1, value, fromUser) -> tvSliderCurrent.setText(sliderCurrentTxt + " انتخابی : " + ((int) value)));
+        editText.setHint(hint);
+        slider.setValueTo(valueTo);
+        tvSliderCurrent.setText(sliderCurrentTxt + " انتخابی : " + ((int) slider.getValue()));
+        tvTitle.setText(title);
+        tvGuideText.setText("جهت تغییر " + sliderCurrentTxt + " انتخابی، نوار بالا را به راست یا چپ بکشید");
+        if (order == orderRemoveRemotes){
             bSendOrder.setVisibility(View.GONE);
             inputLayout.setVisibility(View.GONE);
         }
@@ -225,7 +283,10 @@ public class Settings extends AppCompatActivity {
     }
     private void makeSmsDialog(String smsCommand) {
         Utils.createAlertDialog(Settings.this, "آیا پیامک فرمان ارسال گردد؟", "بله", "خیر", view1 -> {
-            Utils.sendSMS(Settings.this, selectedPhoneNumber, smsCommand);
+            SharedPreferences prefs = getSharedPreferences("storage", MODE_PRIVATE);
+            String pass = prefs.getString("pass","1234");
+            boolean isPassIncluded = prefs.getBoolean("pass_included",false);
+            Utils.sendSMS(Settings.this, selectedPhoneNumber,isPassIncluded ? pass + smsCommand : smsCommand);
         });
     }
     private void readyForEditPass() {

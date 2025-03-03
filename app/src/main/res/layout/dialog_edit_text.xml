@@ -30,11 +30,10 @@
                 android:gravity="center"/>
 
             <ImageView
-                android:id="@+id/iv_close"
+                android:id="@+id/ivClose"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
-                app:tint="@android:color/holo_red_dark" />
+                android:src="@drawable/ic_close"/>
 
         </LinearLayout>
 
@@ -50,9 +49,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusedByDefault="true"
-                android:hint="متن پیامک تحریک را وارد نمایید"
+                android:hint="متن تحریک را وارد نمایید"
                 android:inputType="text"
-                android:maxLength="11" />
+                android:maxLength="40" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,12 +69,12 @@
                 android:focusedByDefault="true"
                 android:hint="سریال شارژ را وارد نمایید"
                 android:inputType="number"
-                android:maxLength="11" />
+                android:maxLength="16"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
       <Button
-          android:id="@+id/b_send_order"
+          android:id="@+id/bSendOrder"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="ارسال دستور"

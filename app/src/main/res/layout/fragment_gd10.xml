@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:columnCount="2">
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_device_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_status"
+        app:text="وضعیت\nدستگاه" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_stop_alarm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_stop_alarm"
+        app:text="توقف\nهشدار" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_manage_outs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_outs"
+        app:text="کنترل\nخروجی‌ها" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_phone_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_phone_list"
+        app:text="لیست\nشماره‌ها" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_realize_balance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_sim"
+        app:text="مانده\nاعتبار" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_add_balance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_increase_balance"
+        app:text="افزایش\nاعتبار" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_device_settings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_settings"
+        app:text="تنظیمات\nدستگاه" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_report"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_report"
+        app:text="گزارش\nوقایع" />
+
+    <com.esnplus.digitalg10.CardLinearContent
+        android:id="@+id/cv_manage_devices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        app:orientation="horizontal"
+        app:src="@drawable/ic_managment"
+        app:text="مدیریت دستگاه‌ها" />
+
+</GridLayout>

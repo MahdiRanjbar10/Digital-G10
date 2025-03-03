@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:alpha="0.8"
             app:cardElevation="3dp"
             app:cardCornerRadius="25dp">
 
@@ -34,94 +33,128 @@
             android:layout_marginTop="10dp"
             android:text="دستگاه انتخابی : 123"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_gravity="center"
             android:padding="5dp"
-            android:alpha="0.8"
-            android:background="@color/black"/>
+            android:background="@drawable/selected_device_back"/>
 
     </LinearLayout>
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:columnCount="3"
-        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
         android:layout_gravity="center">
 
-        <com.esnplus.digitalg10.CardLinearContent
-            android:id="@+id/cv_change_sms_zone"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:alpha="0.8"
-            app:orientation="vertical"
-            app:src="@drawable/ic_change_sms_zone"
-            app:text="تغییر متن پیامک تحریک" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <com.esnplus.digitalg10.CardLinearContent
-            android:id="@+id/cv_manage_phonelist"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:alpha="0.8"
-            app:orientation="vertical"
-            app:src="@drawable/ic_manage_phonelist"
-            app:textSize="10sp"
-            app:text="تغییر یا حذف شماره تلفن ها" />
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_change_default_sim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_default_sim"
+                app:text="تغییر سیم‌کارت\nپیش فرض" />
 
-        <com.esnplus.digitalg10.CardLinearContent
-            android:id="@+id/cv_change_default_sim"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:alpha="0.8"
-            app:orientation="vertical"
-            app:src="@drawable/ic_default_sim"
-            app:text="تغییر سیمکارت پیش فرض" />
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_manage_phonelist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_manage_phonelist"
+                app:text="تغییر یا حذف\nشماره تلفن‌ها" />
 
-        <com.esnplus.digitalg10.CardLinearContent
-            android:id="@+id/cv_name_zone"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:alpha="0.8"
-            app:orientation="vertical"
-            app:src="@drawable/ic_zone"
-            app:text="نام گذاری زونها" />
+        </LinearLayout>
 
-        <com.esnplus.digitalg10.CardLinearContent
-            android:id="@+id/cv_name_remote"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:alpha="0.8"
-            app:orientation="vertical"
-            app:src="@drawable/ic_remote"
-            app:text="نام گذاری ریموتها" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <com.esnplus.digitalg10.CardLinearContent
-            android:id="@+id/cv_remove_remote"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:alpha="0.8"
-            app:orientation="vertical"
-            app:src="@drawable/ic_remove_remote"
-            app:text="حذف ریموت" />
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_change_sms_zone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_change_sms_zone"
+                app:text="تغییر متن\nپیامک تحریک" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_name_zone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_zone"
+                app:text="نام گذاری\nزون‌ها" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_name_remote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_remote"
+                app:text="نام گذاری\nریموت‌ها" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_remove_remote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_remove_remote"
+                app:text="حذف\nریموت" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_sms_zone_negative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_sms_zone_negative"
+                app:text="تغییر متن\nتحریک منفی"/>
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_sms_zone_positive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_sms_zone_positive"
+                app:text="تغییر متن\nتحریک مثبت"/>
+
+        </LinearLayout>
 
         <com.esnplus.digitalg10.CardLinearContent
             android:id="@+id/cv_manage_password"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill_horizontal"
-            android:alpha="0.8"
             app:orientation="horizontal"
             app:src="@drawable/ic_password"
             app:text="مدیریت رمز ورود به نرم افزار" />
 
-    </GridLayout>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

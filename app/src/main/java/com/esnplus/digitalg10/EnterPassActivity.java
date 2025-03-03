@@ -116,7 +116,6 @@ public class EnterPassActivity extends AppCompatActivity {
                     if (Utils.getAlarmDeviceList(EnterPassActivity.this).isEmpty())
                         startActivity(new Intent(EnterPassActivity.this, ManageAlarmDevicesActivity.class));
                     else startActivity(new Intent(EnterPassActivity.this, MainActivity.class));
-                    Utils.showMessage("خوش آمدید",EnterPassActivity.this);
                     finish();
                 }else {
                     Animation an = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_wrongpass);

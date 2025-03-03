@@ -33,8 +33,7 @@
                 android:id="@+id/ivClose"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
-                app:tint="@android:color/holo_red_dark" />
+                android:src="@drawable/ic_close"/>
 
         </LinearLayout>
 
@@ -54,7 +53,8 @@
             android:layout_height="wrap_content"
             android:valueFrom="1"
             android:stepSize="1"
-            android:valueTo="30"/>
+            android:valueTo="5"
+            app:trackColorActive="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/guide_text"

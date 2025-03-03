@@ -50,7 +50,6 @@ public class Utils {
     public static void createAlertDialog(Context context, String message, String b1text, String b2text, View.OnClickListener listener) {
         final Dialog d = new Dialog(context,R.style.AppDialogTheme);
         d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        d.setCancelable(false);
         d.setContentView(R.layout.custom_alert_dialog);
         TextView tv = d.findViewById(R.id.textView);
         CheckBox bYes = d.findViewById(R.id.bYes);
@@ -115,7 +114,7 @@ public class Utils {
                 }
             }
         }else {
-            createAlertDialog(context, "جهت ارسال فرمان ها میبایست دسترسی ارسال و دریافت پیامک را به اپلیکیشن بدهید.آیا مایل به این کار می باشید؟", "بله", "خیر", v -> {
+            createAlertDialog(context, "جهت ارسال فرمان\u200Cها باید دسترسی ارسال و دریافت پیامک را به اپلیکیشن بدهید. آیا مایل به این کار هستید؟", "بله", "خیر", v -> {
                 requestPermission(context, smsPermissions, 1111);
             });
             return false;
@@ -162,5 +161,20 @@ public class Utils {
             return true;
         }
         return true;
+    }
+    public static String replaceWithPersian$(int input$) {
+        switch (input$) {
+            case 0: return "۰";
+            case 1: return "۱";
+            case 2: return "۲";
+            case 3: return "۳";
+            case 4: return "۴";
+            case 5: return "۵";
+            case 6: return "۶";
+            case 7: return "۷";
+            case 8: return "۸";
+            case 9: return "۹";
+            default: return "!";
+        }
     }
 }

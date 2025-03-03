@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    app:cardCornerRadius="40dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="لطفا زون‌هایی که قصد حذف کردن موقت آن‌ها را دارید، انتخاب نمایید."
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_close"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="با ارسال این دستور دستگاه روشن شده و زون‌های انتخاب شده به طور موقت حذف می‌شوند."
+            android:textColor="#474747"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="11sp"
+            android:gravity="right"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="false"
+            android:layout_gravity="center">
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 1" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 2" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 3" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="false"
+            android:layout_gravity="center">
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 4" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 5" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 6" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="false"
+            android:layout_gravity="center">
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 7" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/FilterChip"
+                android:id="@+id/chip_z8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="زون 8" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+      <Button
+          android:id="@+id/bSendOrder"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="ارسال دستور"
+          android:layout_marginTop="10dp"
+          android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

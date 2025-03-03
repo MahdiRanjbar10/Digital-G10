@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            app:iconSize="20dp"
+            android:id="@+id/bSound"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            app:icon="@drawable/ic_sound"
+            app:iconTint="@color/material_button_icon_tint"
+            app:backgroundTint="@color/material_button_background_tint" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            app:iconSize="20dp"
+            android:id="@+id/bMute"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            app:icon="@drawable/ic_mute"
+            app:iconTint="@color/material_button_icon_tint"
+            app:backgroundTint="@color/material_button_background_tint" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:columnCount="2">
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_off"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                app:orientation="vertical"
+                app:src="@drawable/ic_off"
+                app:text="خاموش" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_on"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                app:orientation="vertical"
+                app:src="@drawable/ic_on"
+                app:text="روشن" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_half_on"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_half_on"
+                app:text="نیمه\nروشن" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_device_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_status"
+                app:text="وضعیت\nدستگاه" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_stop_siren"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_siren_off"
+                app:text="قطع\nآژیر" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_stop_alarm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_stop_alarm"
+                app:text="توقف\nهشدار" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_start_siren"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_siren"
+                app:text="آژیر\nاضطراری"/>
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_remove_zone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_remove_zone"
+                app:text="حذف موقت\nزون"/>
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_manage_outs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_outs"
+                app:text="کنترل\nخروجی‌ها"/>
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_phone_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_phone_list"
+                app:text="لیست\nشماره‌ها" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_realize_balance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_sim"
+                app:text="مانده\nاعتبار" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_add_balance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_increase_balance"
+                app:text="افزایش\nاعتبار" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_device_settings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_settings"
+                app:text="تنظیمات\nدستگاه" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_report"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_report"
+                app:text="گزارش\nوقایع" />
+
+            <com.esnplus.digitalg10.CardLinearContent
+                android:id="@+id/cv_manage_devices"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_gravity="fill_horizontal"
+                app:orientation="horizontal"
+                app:src="@drawable/ic_managment"
+                app:text="مدیریت دستگاه‌ها" />
+        </GridLayout>
+    </ScrollView>
+</LinearLayout>

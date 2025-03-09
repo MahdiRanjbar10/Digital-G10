@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import android.app.Application;
 import io.github.inflationx.calligraphy3.CalligraphyConfig;

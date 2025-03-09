@@ -1,6 +1,7 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,27 +17,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import com.esnplus.digitalg10.databinding.FragmentGd10Binding;
+import com.esnplus.digitalG10.databinding.FragmentM52Binding;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.Chip;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class FragmentGD10 extends Fragment {
-    private FragmentGd10Binding binding;
+public class FragmentM52 extends Fragment {
+    private FragmentM52Binding binding;
     private FragmentActivity fragmentActivity;
     private CustomSpinner spinner;
-    public FragmentGD10(CustomSpinner spinner){
+    public FragmentM52(CustomSpinner spinner){
         this.spinner = spinner;
     }
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentGd10Binding.inflate(inflater, container, false);
+        binding = FragmentM52Binding.inflate(inflater, container, false);
         return binding.getRoot();
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fragmentActivity = getActivity();
 
+        binding.bSound.setChecked(true);
         binding.cvManageDevices.setOnClickListener(v -> {
             startActivity(new Intent(fragmentActivity, ManageAlarmDevicesActivity.class));
             fragmentActivity.finish();
@@ -53,6 +56,11 @@ public class FragmentGD10 extends Fragment {
                 startActivity(intent);
             }
         });
+        binding.cvOn.setOnClickListener(v -> makeSmsDialog(binding.bSound.isChecked() ? "روشن" : "روشن بیصدا"));
+        binding.cvOff.setOnClickListener(v -> makeSmsDialog(binding.bSound.isChecked() ? "خاموش" : "خاموش بیصدا"));
+        binding.cvHalfOn.setOnClickListener(v -> makeSmsDialog("نیمه روشن"));
+        binding.cvStopSiren.setOnClickListener(v -> makeSmsDialog("قطع"));
+        binding.cvStartSiren.setOnClickListener(v -> makeSmsDialog("آژیر"));
         binding.cvReport.setOnClickListener(v -> makeSmsDialog("گزارش"));
         binding.cvDeviceStatus.setOnClickListener(v -> makeSmsDialog("وضعیت"));
         binding.cvPhoneList.setOnClickListener(v -> makeSmsDialog("لیست"));
@@ -109,6 +117,33 @@ public class FragmentGD10 extends Fragment {
                 }
                 d.dismiss();
             });
+            d.show();
+        });
+        binding.cvRemoveZone.setOnClickListener(v -> {
+            Dialog d = new Dialog(fragmentActivity, R.style.AppDialogTheme);
+            d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            d.setContentView(R.layout.dialog_remove_temporary_zone);
+            ImageView ivClose = d.findViewById(R.id.ivClose);
+            Chip chipZ1 = d.findViewById(R.id.chip_z1);
+            Chip chipZ2 = d.findViewById(R.id.chip_z2);
+            Chip chipZ3 = d.findViewById(R.id.chip_z3);
+            Chip chipZ4 = d.findViewById(R.id.chip_z4);
+            Chip chipZ5 = d.findViewById(R.id.chip_z5);
+            Chip chipZ6 = d.findViewById(R.id.chip_z6);
+            Chip chipZ7 = d.findViewById(R.id.chip_z7);
+            Chip chipZ8 = d.findViewById(R.id.chip_z8);
+            Chip[] chips = new Chip[]{chipZ1,chipZ2,chipZ3,chipZ4,chipZ5,chipZ6,chipZ7,chipZ8};
+            Button bSendOrder = d.findViewById(R.id.bSendOrder);
+
+            bSendOrder.setOnClickListener(view1 -> {
+                String sms = "omit:";
+                for (int i = 0; i < chips.length; i++) {
+                    if (chips[i].isChecked()) sms += (i + 1);
+                }
+                makeSmsDialog(sms);
+                d.dismiss();
+            });
+            ivClose.setOnClickListener(view3 -> d.dismiss());
             d.show();
         });
     }

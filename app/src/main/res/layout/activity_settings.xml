@@ -52,41 +52,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.esnplus.digitalg10.CardLinearContent
-                android:id="@+id/cv_change_default_sim"
+            <com.esnplus.digitalG10.CardLinearContent
+                android:id="@+id/cv_name_remote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:orientation="vertical"
                 android:layout_weight="1"
-                app:src="@drawable/ic_default_sim"
-                app:text="تغییر سیم‌کارت\nپیش فرض" />
+                app:src="@drawable/ic_remote"
+                app:text="نام گذاری\nریموت‌ها" />
 
-            <com.esnplus.digitalg10.CardLinearContent
-                android:id="@+id/cv_manage_phonelist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:orientation="vertical"
-                android:layout_weight="1"
-                app:src="@drawable/ic_manage_phonelist"
-                app:text="تغییر یا حذف\nشماره تلفن‌ها" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.esnplus.digitalg10.CardLinearContent
-                android:id="@+id/cv_change_sms_zone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:orientation="vertical"
-                android:layout_weight="1"
-                app:src="@drawable/ic_change_sms_zone"
-                app:text="تغییر متن\nپیامک تحریک" />
-
-            <com.esnplus.digitalg10.CardLinearContent
+            <com.esnplus.digitalG10.CardLinearContent
                 android:id="@+id/cv_name_zone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,16 +77,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.esnplus.digitalg10.CardLinearContent
-                android:id="@+id/cv_name_remote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:orientation="vertical"
-                android:layout_weight="1"
-                app:src="@drawable/ic_remote"
-                app:text="نام گذاری\nریموت‌ها" />
-
-            <com.esnplus.digitalg10.CardLinearContent
+            <com.esnplus.digitalG10.CardLinearContent
                 android:id="@+id/cv_remove_remote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,6 +86,15 @@
                 app:src="@drawable/ic_remove_remote"
                 app:text="حذف\nریموت" />
 
+            <com.esnplus.digitalG10.CardLinearContent
+                android:id="@+id/cv_manage_phonelist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_manage_phonelist"
+                app:text="تغییر یا حذف\nشماره تلفن‌ها" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -127,7 +102,32 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.esnplus.digitalg10.CardLinearContent
+            <com.esnplus.digitalG10.CardLinearContent
+                android:id="@+id/cv_change_default_sim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_default_sim"
+                app:text="تغییر سیم‌کارت\nپیش فرض" />
+
+            <com.esnplus.digitalG10.CardLinearContent
+                android:id="@+id/cv_change_sms_zone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="vertical"
+                android:layout_weight="1"
+                app:src="@drawable/ic_change_sms_zone"
+                app:text="تغییر متن\nپیامک تحریک" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.esnplus.digitalG10.CardLinearContent
                 android:id="@+id/cv_sms_zone_negative"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                 app:src="@drawable/ic_sms_zone_negative"
                 app:text="تغییر متن\nتحریک منفی"/>
 
-            <com.esnplus.digitalg10.CardLinearContent
+            <com.esnplus.digitalG10.CardLinearContent
                 android:id="@+id/cv_sms_zone_positive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
 
         </LinearLayout>
 
-        <com.esnplus.digitalg10.CardLinearContent
+        <com.esnplus.digitalG10.CardLinearContent
             android:id="@+id/cv_manage_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

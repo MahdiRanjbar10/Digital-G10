@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.esnplus.digitalg10.databinding.ActivitySettingsBinding;
+import com.esnplus.digitalG10.databinding.ActivitySettingsBinding;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.slider.Slider;

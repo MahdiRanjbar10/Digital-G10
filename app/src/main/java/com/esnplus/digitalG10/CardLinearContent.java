@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -37,7 +37,7 @@ public class CardLinearContent extends LinearLayout {
         int imgSrc = typedArray.getResourceId(R.styleable.CardLinearContent_src,-1);
         int orientation = typedArray.getInt(R.styleable.CardLinearContent_orientation, LinearLayout.VERTICAL);
         float textSize = typedArray.getDimension(R.styleable.CardLinearContent_textSize,
-                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics()));
+                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 11, getResources().getDisplayMetrics()));
 
         typedArray.recycle();
 

@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.esnplus.digitalg10.databinding.ActivityManageAlarmDevicesBinding;
+import com.esnplus.digitalG10.databinding.ActivityManageAlarmDevicesBinding;
 import com.google.android.material.button.MaterialButton;
 import java.util.List;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;

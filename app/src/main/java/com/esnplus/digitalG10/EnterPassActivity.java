@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import com.esnplus.digitalg10.databinding.ActivityEnterPassBinding;
+import com.esnplus.digitalG10.databinding.ActivityEnterPassBinding;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class EnterPassActivity extends AppCompatActivity {
@@ -129,7 +129,7 @@ public class EnterPassActivity extends AppCompatActivity {
                     Utils.showMessage("رمز عبور صحیح نمیباشد!",EnterPassActivity.this);
                 }
             }
-        }, 50);
+        }, 5);
     }
     @Override
     protected void attachBaseContext(Context newBase) {

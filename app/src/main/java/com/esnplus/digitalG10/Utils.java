@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import static android.content.Context.MODE_PRIVATE;
 import android.annotation.SuppressLint;
@@ -7,6 +7,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.SmsManager;
 import android.telephony.SubscriptionInfo;
@@ -24,6 +26,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import android.Manifest;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -38,6 +42,22 @@ public class Utils {
             return new ArrayList<>();
         }
         return alarmDeviceList;
+    }
+    public static String getLine(String reference,int ln){
+        Scanner input = new Scanner(reference);
+        int i = 1;
+        while (input.hasNextLine()) {
+            if (ln == i)
+                return input.nextLine();
+            else input.nextLine();
+            i++;
+        }
+        return "not found!";
+    }
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
     public static void saveAlarmDeviceList(Context context, List<AlarmDevice> list) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("storage", MODE_PRIVATE);

@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.3"
+dropboxCoreSdk = "6.0.0"
 githubCalligraphy3 = "3.1.1"
 gsonVersion = "2.12.1"
 junit = "4.13.2"
@@ -16,6 +17,7 @@ viewpump = "2.0.3"
 activity = "1.10.0"
 
 [libraries]
+dropbox-core-sdk = { module = "com.dropbox.core:dropbox-core-sdk", version.ref = "dropboxCoreSdk" }
 github-calligraphy3 = { module = "io.github.inflationx:calligraphy3", version.ref = "githubCalligraphy3" }
 google-gson = { module = "com.google.code.gson:gson", version.ref = "gsonVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

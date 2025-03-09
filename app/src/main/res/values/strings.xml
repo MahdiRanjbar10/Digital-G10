@@ -12,5 +12,13 @@
     <string name="_1">1</string>
     <string name="text_enter_pass">رمز عبور نرم افزار را وارد نمایید</string>
     <string name="content_des">content</string>
-    <string name="app_name_version">DIGITAL G10 \n version 6.0.1</string>
+    <string name="app_name_version">DIGITAL G10 \n Version 2.1</string>
+    <integer name="versionCode">10</integer>
+    <string name="about_us">
+شرکت دیجیتال آلارم با بیش از ۴۰ سال تجربه در زمینه طراحی و تولید سیستم‌های حفاظتی، یکی از پیشگامان صنعت امنیت در ایران است.
+\n\n
+ما همواره در تلاش هستیم تا با ارائه راهکارهای نوین، امنیت و آرامش را برای مشتریان خود به ارمغان آوریم. ما به اصولی مانند نوآوری، کیفیت و پشتیبانی متعهدیم و با ارائه خدمات پس از فروش حرفه‌ای، رضایت مشتریان را در اولویت قرار می‌دهیم.
+\n\n
+با ما امنیت را تجربه کنید!
+    </string>
 </resources>

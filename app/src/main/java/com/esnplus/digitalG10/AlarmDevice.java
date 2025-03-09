@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 public class AlarmDevice {
     private int type,icon,language;
     private String name,phoneNumber;

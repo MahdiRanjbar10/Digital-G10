@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="5dp"
-    android:background="@drawable/back">
+    tools:context=".AboutUsActivity"
+    android:background="@drawable/back"
+    android:padding="5dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         app:cardElevation="3dp"
-        app:cardCornerRadius="25dp">
+        app:cardCornerRadius="25dp"
+        android:layout_gravity="top">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -22,15 +25,15 @@
 
     </androidx.cardview.widget.CardView>
 
-    <com.esnplus.digitalG10.CustomSpinner
-        android:id="@+id/spinner"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:gravity="right"
+        android:padding="10dp"
+        android:text="@string/about_us"
+        android:background="@drawable/selected_device_back"/>
 
-    <FrameLayout
-        android:id="@+id/fragment_holder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

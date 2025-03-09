@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace = "com.esnplus.digitalg10"
+    namespace = "com.esnplus.digitalG10"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.esnplus.digitalg10"
+        applicationId = "com.esnplus.digitalG10"
         minSdk = 22
         targetSdk = 35
-        versionCode = 6
-        versionName = "6.0.1"
+        versionCode = 10
+        versionName = "2.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -49,4 +49,5 @@ dependencies {
     implementation(libs.github.calligraphy3)
     implementation(libs.viewpump)
     implementation (libs.google.gson)
+    implementation(libs.dropbox.core.sdk)
 }

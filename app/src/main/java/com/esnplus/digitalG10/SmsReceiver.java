@@ -1,4 +1,4 @@
-package com.esnplus.digitalg10;
+package com.esnplus.digitalG10;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
